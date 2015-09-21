@@ -43,3 +43,53 @@ sayColor.call(this)
 sayColor.call(o)
 var objSaycolor = sayColor.bind(o)
 objSaycolor()
+Global
+encodeURIComponent
+eval
+Math
+--------
+6.1.1 attribute 数据属性，访问器属性
+Object.defineProperty(xx,"perperty",{configurable:false,value:'ff',writable:false,enumerable:false,get:fxxx,set:fxx})
+Object.getOwnPropertyDescriptor()
+6.2创建对象
+6.2.1工厂模式
+function createPerson(name,age,job){
+  var o = new Object();
+  o.name = name;
+  o.age = age;
+  o.job = job;
+  o.sayName = function(){
+    console.log(this.name)
+  }
+  return o;
+}
+var person1 = createPerson('anjun',29,"soft engineer")
+6.2.2构造函数模式
+function createPerson(name,age,job){
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.sayName = function(){
+    console.log(this.name)
+  }
+}
+new createPerson(x,x,x) //只有用new调用才是构造函数
+缺点 每个方法都在每个实例上创建一次
+6.2.3原型模式
+prototype 实例共享的属性和方法
+function person(){}
+Person.prototype.name = "f"
+Person.prototype.constructor //Person
+Object.getPrototypeOf()
+6.2.4组合使用构造函数和原型模式
+构造函数 定义实例属性 原型定义方法和共享属性
+6.2.5动态原型
+6.3继承 实现继承 不能接口味继承
+6.3.1原型链
+6.3.2借用构造函数
+子类构造函数内调用超类构造函数
+function SubType(){
+  SuperType.call(this)
+}
+6.3.3组合继承
+6.3.4原型式继承
